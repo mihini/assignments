@@ -1,0 +1,47 @@
+<script type="text/javascript">
+$(document).ready(function() {
+//Upg get()
+  var apiUrl = "https://company-generator.herokuapp.com/company";
+    $.get(apiUrl, function(data){
+      addData(data);
+    });
+
+    /**
+
+    **  Samma som get() ovan fast med ajax.
+
+    // $.ajax({
+    // 	type: 'GET',
+    // 	url: apiUrl,
+    // 	success: function(response){
+    //     addData(response);
+    // 	}
+    // });
+
+    */
+
+
+  function addData(data){
+    var companyList = "";
+    data.forEach(function(company){
+      companyList += "<tr><td>" + company.name +
+      "</td><td>" + company.suffix + "</td><td>" +
+      company.bsBuzz + "</td></tr>";
+    });
+    $("table").append(companyList);
+  }
+});
+</script>
+<table>
+  <tr>
+    <th>Namn</th>
+    <th>Företagstyp</th>
+    <th>BsBuzz</th>
+  </tr>
+
+</table>
+
+
+<p>
+  Här är uppgift med api
+</p>

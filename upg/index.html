@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Start</title>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var apiUrl = "https://company-generator.herokuapp.com/company";
+
+    //Upg. load()
+        $("#one").on("click", function(e){
+          $(".mainText").load("test1.html");
+          e.preventDefault();
+        });
+
+        $("#two").on("click", function(e){
+          $(".mainText").load("test2.html");
+          e.preventDefault();
+        });
+
+        $(document.body).on("submit", "#userComp" ,function(e){
+          e.preventDefault();
+          $.post( apiUrl, $( "#userComp" ).serialize() );
+
+          /**
+            Samma som $.post ovan men använder ajax() istället
+            */
+          // var jsonData = $(this).serialize();
+        	// $.ajax({
+        	// 	type: 'POST',
+        	// 	url: apiUrl,
+        	// 	data: jsonData,
+        	// 	success: function(response){
+        	// 		$('.companyList').append("<tr><td>" + response.name +
+          //     "</td><td>" + response.suffix + "</td><td>" +
+          //     response.bsBuzz + "</td></tr>");
+        	// 	}
+          // });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="#" id="one">Ladda Företag</a>
+      <a href="#" id="two">Till sida Test 2</a>
+    </header>
+    <section class="mainText">
+
+    </section>
+    <form id="userComp" action="" method="post">
+      Namn: <input type="text" name="name"><br>
+      Företagstyp: <input type="text" name="suffix"><br>
+      BsBuzz: <input type="text" name="bsBuzz"><br>
+      <input type="submit" value="ok">
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,28 @@
+header{
+  text-align: center;
+}
+.container{
+  margin-top: 90px;
+}
+.main p, h1, h2, h4{
+  text-align: center;
+}
+p{
+  margin-bottom: 40px;
+}
+h1{
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+h2{
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.btns{
+  margin-top: 50px
+}
+
+.male{
+  margin-bottom: 10px;
+}
